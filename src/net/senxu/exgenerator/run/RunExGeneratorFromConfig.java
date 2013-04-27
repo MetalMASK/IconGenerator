@@ -20,6 +20,9 @@ import net.senxu.imagegenerator.ImageGenerator;
  * @author sxu
  */
 public class RunExGeneratorFromConfig {
+    private static final String background="map500ft_Bing.png";
+    private static final String roPath="blackOval12X12.png";
+    private static final String loPath="blueOval12X12.png";
     private static final int size=8;
     private static final int minDist=2;
     private static final int maxDist=80;
@@ -30,7 +33,7 @@ public class RunExGeneratorFromConfig {
     
     public static void main(String[] args){
         //step 0. generate a file directory to put configs and icons
-        File dir=new File("./"+new SimpleDateFormat("yyyyMMdd").format(new Date())+"_config");
+        File dir=new File("./"+new SimpleDateFormat("yyyyMMdd").format(new Date())+background.split("\\.")[0]+"_config");
         dir.mkdir();
         
         //step 1. read from config
@@ -38,9 +41,9 @@ public class RunExGeneratorFromConfig {
         try {
             ArrayList<StimuliConfig> configList=readFromConfig(configFile);
             //step 2. generate icon based on the configs in step 1
-            BufferedImage bgImage = ImageGenerator.readImage("mapNoScale.jpg");
-            BufferedImage ro = ImageGenerator.readImage("blackOval12X12.png");
-            BufferedImage lo = ImageGenerator.readImage("blueOval12X12.png");
+            BufferedImage bgImage = ImageGenerator.readImage(background);
+            BufferedImage ro = ImageGenerator.readImage(roPath);
+            BufferedImage lo = ImageGenerator.readImage(loPath);
             BufferedImage overlayedImage;
             int dist=minDist;
             int i=0;
