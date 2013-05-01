@@ -20,7 +20,7 @@ import net.senxu.imagegenerator.ImageGenerator;
  * @author sxu
  */
 public class RunExGeneratorFromConfig {
-    private static final String background="map500ft_Bing.png";
+    private static final String background="White_NoScale.png";
     private static final String roPath="blackOval12X12.png";
     private static final String loPath="blueOval12X12.png";
     private static final int size=8;
